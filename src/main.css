@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+* {
+    /* Scheme */
+    --light: light;
+    --night: dark;
+    
+    /* Theme 1 */
+    --bcm-100-night: #3a4764;
+    --bcm-200-night: #232c43;
+    --bcm-300-night: #182034;
+    --bck-100-night: #637097;
+    --sck-100-night: #404e72;
+    --bck-200-night: #d03f2f;
+    --sck-200-night: #93261a;
+    --bck-300-night: #eae3dc;
+    --sck-300-night: #b4a597;
+    --tcm-idx-night: #ffffff;
+    --tcm-100-night: #444b5a;
+    --tcm-200-night: #ffffff;
+    --tcm-300-night: #ffffff;
+    --tcm-400-night: #eb4747;
+    
+    /* Theme 2 */
+    --bcm-100-light: #e6e6e6;
+    --bcm-200-light: #d1cccc;
+    --bcm-300-light: #ededed;
+    --bck-100-light: #377f86;
+    --sck-100-light: #1b5f65;
+    --bck-200-light: #ca5502;
+    --sck-200-light: #893901;
+    --bck-300-light: #e5e4e1;
+    --sck-300-light: #a69d91;
+    --tcm-idx-light: #35352c;
+    --tcm-100-light: #35352c;
+    --tcm-200-light: #ffffff;
+    --tcm-300-light: #ffffff;
+    --tcm-400-light: #990000;
+    
+    /* Theme 3 */
+    --bcm-100-other: #160628;
+    --bcm-200-other: #1d0934;
+    --bcm-300-other: #1d0934;
+    --bck-100-other: #58077d;
+    --sck-100-other: #bc15f4;
+    --bck-200-other: #00e0d1;
+    --sck-200-other: #6cf9f2;
+    --bck-300-other: #341c4f;
+    --sck-300-other: #871c9c;
+    --tcm-idx-other: #ffe53d;
+    --tcm-100-other: #ffe53d;
+    --tcm-200-other: #ffffff;
+    --tcm-300-other: #1b2428;
+    --tcm-400-other: #f20d0d;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: var(--night);
+        --bcm-100: var(--bcm-100-night);
+        --bcm-200: var(--bcm-200-night);
+        --bcm-300: var(--bcm-300-night);
+        --bck-100: var(--bck-100-night);
+        --sck-100: var(--sck-100-night);
+        --bck-200: var(--bck-200-night);
+        --sck-200: var(--sck-200-night);
+        --bck-300: var(--bck-300-night);
+        --sck-300: var(--sck-300-night);
+        --tcm-idx: var(--tcm-idx-night);
+        --tcm-100: var(--tcm-100-night);
+        --tcm-200: var(--tcm-200-night);
+        --tcm-300: var(--tcm-300-night);
+        --tcm-400: var(--tcm-400-night);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: var(--light);
+        --bcm-100: var(--bcm-100-light);
+        --bcm-200: var(--bcm-200-light);
+        --bcm-300: var(--bcm-300-light);
+        --bck-100: var(--bck-100-light);
+        --sck-100: var(--sck-100-light);
+        --bck-200: var(--bck-200-light);
+        --sck-200: var(--sck-200-light);
+        --bck-300: var(--bck-300-light);
+        --sck-300: var(--sck-300-light);
+        --tcm-idx: var(--tcm-idx-light);
+        --tcm-100: var(--tcm-100-light);
+        --tcm-200: var(--tcm-200-light);
+        --tcm-300: var(--tcm-300-light);
+        --tcm-400: var(--tcm-400-light);
+    }
+}
+
+[data-mode="night"] {
+    color-scheme: var(--night);
+    --bcm-100: var(--bcm-100-night);
+    --bcm-200: var(--bcm-200-night);
+    --bcm-300: var(--bcm-300-night);
+    --bck-100: var(--bck-100-night);
+    --sck-100: var(--sck-100-night);
+    --bck-200: var(--bck-200-night);
+    --sck-200: var(--sck-200-night);
+    --bck-300: var(--bck-300-night);
+    --sck-300: var(--sck-300-night);
+    --tcm-idx: var(--tcm-idx-night);
+    --tcm-100: var(--tcm-100-night);
+    --tcm-200: var(--tcm-200-night);
+    --tcm-300: var(--tcm-300-night);
+    --tcm-400: var(--tcm-400-night);
+}
+
+[data-mode="light"] {
+    color-scheme: var(--light);
+    --bcm-100: var(--bcm-100-light);
+    --bcm-200: var(--bcm-200-light);
+    --bcm-300: var(--bcm-300-light);
+    --bck-100: var(--bck-100-light);
+    --sck-100: var(--sck-100-light);
+    --bck-200: var(--bck-200-light);
+    --sck-200: var(--sck-200-light);
+    --bck-300: var(--bck-300-light);
+    --sck-300: var(--sck-300-light);
+    --tcm-idx: var(--tcm-idx-light);
+    --tcm-100: var(--tcm-100-light);
+    --tcm-200: var(--tcm-200-light);
+    --tcm-300: var(--tcm-300-light);
+    --tcm-400: var(--tcm-400-light);
+}
+
+[data-mode="other"] {
+    color-scheme: var(--night);
+    --bcm-100: var(--bcm-100-other);
+    --bcm-200: var(--bcm-200-other);
+    --bcm-300: var(--bcm-300-other);
+    --bck-100: var(--bck-100-other);
+    --sck-100: var(--sck-100-other);
+    --bck-200: var(--bck-200-other);
+    --sck-200: var(--sck-200-other);
+    --bck-300: var(--bck-300-other);
+    --sck-300: var(--sck-300-other);
+    --tcm-idx: var(--tcm-idx-other);
+    --tcm-100: var(--tcm-100-other);
+    --tcm-200: var(--tcm-200-other);
+    --tcm-300: var(--tcm-300-other);
+    --tcm-400: var(--tcm-400-other);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-body text-base;
+    }
+}
