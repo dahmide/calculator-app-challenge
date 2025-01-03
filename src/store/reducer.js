@@ -30,10 +30,11 @@ const reducer = (state, event) => {
             	return {
             		...state,
             		operandY: cValue,
+            		observer: "",
             		operandX: "",
             		operator: "",
             		solution: "",
-            		conflict: ""
+            		conflict: "",
             	};
             }
             
@@ -98,6 +99,7 @@ const reducer = (state, event) => {
             	const length = result.length - 1;
             	return {
             		...state,
+            		observer: "1",
             		solution: "",
             		conflict: "",
             		operandY: "",
@@ -128,7 +130,6 @@ const reducer = (state, event) => {
             		operandY: cDigit,
             		operator: pOpers,
             	});
-            	console.log(result);
             	const status = result.error;
             	const answer = result.value;
             	const length = result.value.length - 1;
@@ -139,7 +140,8 @@ const reducer = (state, event) => {
             		operandY: "",
             		solution: status ? answer : "",
             		conflict: status ? status : "",
-            		location: status ? "" : length
+            		location: status ? "" : length,
+            		observer: status ? "" : "1",
             	};
             }
             
@@ -218,6 +220,7 @@ const reducer = (state, event) => {
             if (cursor === len && cOpers === NIL) {
             	return {
             		...state,
+            		observer: "",
             		location: "",
             		operandY: "",
             	};
@@ -226,9 +229,10 @@ const reducer = (state, event) => {
             if (cDigit === NIL && cOpers !== NIL) {
                 return {
                     ...state,
+            		observer: "2",
                     operator: cDigit,
                     operandX: cDigit,
-                    operandY: pDigit
+                    operandY: pDigit,
                 };
             }
 
@@ -244,7 +248,8 @@ const reducer = (state, event) => {
                 operandY: "",
                 operator: "",
                 solution: "",
-                conflict: ""
+                conflict: "",
+                observer: "",
             };
         }
         case reducerCase.EQUAL: {
@@ -255,11 +260,12 @@ const reducer = (state, event) => {
             const result = computeExpr({
                 operandX: pDigit,
                 operandY: cDigit,
-                operator: cOpers
+                operator: cOpers,
             });
 
             return {
                 ...state,
+                observer: "3",
                 solution: result.value || "",
                 conflict: result.error || ""
             };

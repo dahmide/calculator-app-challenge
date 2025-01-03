@@ -26,9 +26,9 @@ const computeExpr = (param) => {
 			break;
 		default:
 			failure = "Invalid operation";
-			return outcomeFunc({ stream: failure });
+			return { value: failure, error: true };
 	}
-	return outcomeFunc({ stream: outcome });
+	return { value: outcome, error: false };
 };
 
 export default computeExpr;
