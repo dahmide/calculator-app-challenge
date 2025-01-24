@@ -15,7 +15,7 @@
     --sck-200-night: #93261a;
     --bck-300-night: #eae3dc;
     --sck-300-night: #b4a597;
-    --tcm-idx-night: #ffffff;
+    --tcm-clr-night: #ffffff;
     --tcm-100-night: #444b5a;
     --tcm-200-night: #ffffff;
     --tcm-300-night: #ffffff;
@@ -31,7 +31,7 @@
     --sck-200-light: #893901;
     --bck-300-light: #e5e4e1;
     --sck-300-light: #a69d91;
-    --tcm-idx-light: #35352c;
+    --tcm-clr-light: #35352c;
     --tcm-100-light: #35352c;
     --tcm-200-light: #ffffff;
     --tcm-300-light: #ffffff;
@@ -47,7 +47,7 @@
     --sck-200-other: #6cf9f2;
     --bck-300-other: #341c4f;
     --sck-300-other: #871c9c;
-    --tcm-idx-other: #ffe53d;
+    --tcm-clr-other: #ffe53d;
     --tcm-100-other: #ffe53d;
     --tcm-200-other: #ffffff;
     --tcm-300-other: #1b2428;
@@ -66,7 +66,7 @@
         --sck-200: var(--sck-200-night);
         --bck-300: var(--bck-300-night);
         --sck-300: var(--sck-300-night);
-        --tcm-idx: var(--tcm-idx-night);
+        --tcm-clr: var(--tcm-clr-night);
         --tcm-100: var(--tcm-100-night);
         --tcm-200: var(--tcm-200-night);
         --tcm-300: var(--tcm-300-night);
@@ -86,7 +86,7 @@
         --sck-200: var(--sck-200-light);
         --bck-300: var(--bck-300-light);
         --sck-300: var(--sck-300-light);
-        --tcm-idx: var(--tcm-idx-light);
+        --tcm-clr: var(--tcm-clr-light);
         --tcm-100: var(--tcm-100-light);
         --tcm-200: var(--tcm-200-light);
         --tcm-300: var(--tcm-300-light);
@@ -105,7 +105,7 @@
     --sck-200: var(--sck-200-night);
     --bck-300: var(--bck-300-night);
     --sck-300: var(--sck-300-night);
-    --tcm-idx: var(--tcm-idx-night);
+    --tcm-clr: var(--tcm-clr-night);
     --tcm-100: var(--tcm-100-night);
     --tcm-200: var(--tcm-200-night);
     --tcm-300: var(--tcm-300-night);
@@ -123,7 +123,7 @@
     --sck-200: var(--sck-200-light);
     --bck-300: var(--bck-300-light);
     --sck-300: var(--sck-300-light);
-    --tcm-idx: var(--tcm-idx-light);
+    --tcm-clr: var(--tcm-clr-light);
     --tcm-100: var(--tcm-100-light);
     --tcm-200: var(--tcm-200-light);
     --tcm-300: var(--tcm-300-light);
@@ -141,7 +141,7 @@
     --sck-200: var(--sck-200-other);
     --bck-300: var(--bck-300-other);
     --sck-300: var(--sck-300-other);
-    --tcm-idx: var(--tcm-idx-other);
+    --tcm-clr: var(--tcm-clr-other);
     --tcm-100: var(--tcm-100-other);
     --tcm-200: var(--tcm-200-other);
     --tcm-300: var(--tcm-300-other);

@@ -8,7 +8,7 @@ import Action from "./components/action/action";
 
 import { reducerCase } from "./utils";
 import { getDatabase } from "./services/LocalStorage/LocalStorage.service.js";
-//localStorage.clear();
+
 const App = () => {
     const [state, dispatch] = useReducer(
         reducer, 
@@ -53,10 +53,10 @@ const App = () => {
     }, []);
     return (
         <main 
-            className="text-tcm-idx" 
+            className="text-tcm-clr" 
             data-mode={state.schemeID}>
-            <section className="min-h-screen bg-bcm-100 flex justify-center items-center py-8">
-                <div className="w-[90%] max-w-[450px]">
+            <section className="min-h-screen bg-bcm-100 flex justify-center items-center px-5 py-8">
+                <div className="w-[80%] min-w-[300px] max-w-[350px]">
                     <Header 
                         state={state} 
                         dispatch={dispatch} 

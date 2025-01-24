@@ -23,8 +23,11 @@ const powers = {
 };
 
 function captureFunc(params) {
-	const { value, index } = params;
-	if (index && value) {
+	const { value, watch } = params;
+	const check = value === "" || isNaN(value);
+	
+	if (check) { return value };
+	if (watch) {
 		return correctFunc(value);
 	} else {
 		return patternFunc(value);
@@ -62,8 +65,8 @@ function patternFunc(number) {
 	let yValue;
 	let result;
 	
-	if (number === "" || number.includes("e")) { return number; }
-	if (isNaN(number) || Math.abs(number) < 1) { return number; }
+	if (number.includes("e")) { return number; }
+	if (Math.abs(number) < 1) { return number; }
 	
 	values = number.split(".");
 	xValue = values[0];

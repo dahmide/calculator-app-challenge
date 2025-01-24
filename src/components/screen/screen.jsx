@@ -1,23 +1,26 @@
-import { captureFunc } from "../../utils";
+import { pointerCase, captureFunc } from "../../utils";
 
 const Screen = (props) => {
-    const { state, dispatch } = props;
-    const index = state.observer;
-    const entry = [
-    	captureFunc({ value: state.operandX, index: index === "1" }), 
+    const { state } = props;
+    const watch = {
+        operandX: state.tracking === pointerCase.operandX,
+        operandY: state.tracking === pointerCase.operandY,
+        solution: state.tracking === pointerCase.solution,
+    };
+    const input = [
+    	captureFunc({ value: state.operandX, watch: watch.operandX }), 
     	state.operator, 
-        captureFunc({ value: state.operandY, index: index === "2" }),
+        captureFunc({ value: state.operandY, watch: watch.operandY }),
     ];
     const total = [
-        captureFunc({ value: state.solution, index: index === "3" })
+        captureFunc({ value: state.solution, watch: watch.solution })
     ];
-    //const color = state.conflict ? "tcm-400" : "inherit";
     return (
-        <div className={`flex justify-end px-5 py-4 mb-3 text-4xl leading-10 text-inherit bg-bcm-300 rounded-md overflow-clip whitespace-nowrap`}>
+        <div className={`flex items-center justify-end h-20 px-5 py-4 mb-3 text-4xl leading-10 text-inherit bg-bcm-300 rounded-md overflow-clip whitespace-nowrap`}>
             { 
             	state.solution ? total : 
-            	state.operandX ? entry :
-            	state.operandY ? entry : "0"
+            	state.operandX ? input :
+            	state.operandY ? input : ""
             }
         </div>
     );

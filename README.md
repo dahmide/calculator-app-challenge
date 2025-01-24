@@ -27,11 +27,11 @@ Users should be able to:
 
 ### Screenshot
 
-![Theme 1](./src/assets/snaps/theme-1.png)
+![Theme 1](./src/assets/images/theme-1.png)
 
-![Theme 2](./src/assets/snaps/theme-2.png)
+![Theme 2](./src/assets/images/theme-2.png)
 
-![Theme 3](./src/assets/snaps/theme-3.png)
+![Theme 3](./src/assets/images/theme-3.png)
 
 ### Links
 
@@ -60,4 +60,4 @@ Users should be able to:
 
 ## Acknowledgments
 
-Thanks to [Frontend Mentor](https://www.frontendmentor.io) for the [calculator-app](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29) challenge.
+Thanks to [Frontend Mentor](https://www.frontendmentor.io) for the [calculator app](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29) challenge.

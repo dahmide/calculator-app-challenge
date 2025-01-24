@@ -1,4 +1,4 @@
-import { reducerCase, mergeDigits, hasFraction, computeExpr } from "../utils";
+import { reducerCase, pointerCase, mergeDigits, hasFraction, computeExpr } from "../utils";
 import { setDatabase } from "../services/LocalStorage/LocalStorage.service.js";
 
 const SYMBOLS = {
@@ -10,11 +10,11 @@ const SYMBOLS = {
     ZRO: "0",
     NIL: "",
 };
-const { ADD, SUB, MUL, DIV, DOT, ZRO, NIL } = SYMBOLS;
-const reducer = (state, event) => {
-    switch (event.type) {
+const { ADD, SUB, DOT, ZRO, NIL } = SYMBOLS;
+const reducer = (state, query) => {
+    switch (query.type) {
         case reducerCase.DIGIT: {
-            const cDigit = event.number;
+            const cDigit = query.number;
             const pDigit = state.operandY;
             const result = state.solution;
             const issued = state.conflict;
@@ -30,7 +30,6 @@ const reducer = (state, event) => {
             	return {
             		...state,
             		operandY: cValue,
-            		observer: "",
             		operandX: "",
             		operator: "",
             		solution: "",
@@ -60,6 +59,7 @@ const reducer = (state, event) => {
             }
             
             const isDigitCheck_1 = pDigit === "0" ? true : pDigit === "-0" ? true : false;
+            // const isDigitCheck_1 = Math.abs(pDigit) === 0 ? true : false;
             if (cDigit === ZRO && isDigitCheck_1) {
                 return {
                     ...state
@@ -82,12 +82,13 @@ const reducer = (state, event) => {
             };
         }
         case reducerCase.SIGNS: {
-            const cOpers = event.symbol;
+            const cOpers = query.symbol;
             const pOpers = state.operator;
             const cDigit = state.operandY;
             const pDigit = state.operandX;
             const result = state.solution;
             const issued = state.conflict;
+            const handle = state.tracking;
             
             if (issued) {
             	return {
@@ -99,13 +100,13 @@ const reducer = (state, event) => {
             	const length = result.length - 1;
             	return {
             		...state,
-            		observer: "1",
             		solution: "",
             		conflict: "",
             		operandY: "",
             		operandX: result,
             		operator: cOpers,
             		location: length,
+                    tracking: pointerCase.operandX
             	};
             }
             
@@ -141,7 +142,7 @@ const reducer = (state, event) => {
             		solution: status ? answer : "",
             		conflict: status ? status : "",
             		location: status ? "" : length,
-            		observer: status ? "" : "1",
+                    tracking: status ? "" : pointerCase.operandX
             	};
             }
             
@@ -183,7 +184,8 @@ const reducer = (state, event) => {
                 ...state,
                 operator: cOpers,
                 operandX: cDigit,
-                operandY: pDigit
+                operandY: pDigit,
+                tracking: handle ? pointerCase.operandX : ""
             };
         }
         case reducerCase.ERASE: {
@@ -193,6 +195,7 @@ const reducer = (state, event) => {
             const result = state.solution;
             const issued = state.conflict;
             const cursor = state.location;
+            const handle = state.tracking;
 
             const sliced = cDigit.slice(0, cDigit.length - 1);
             
@@ -212,6 +215,7 @@ const reducer = (state, event) => {
             		...state,
             		solution: "",
             		conflict: "",
+                    tracking: "",
             		operandY: sliced
             	};
             }
@@ -220,19 +224,19 @@ const reducer = (state, event) => {
             if (cursor === len && cOpers === NIL) {
             	return {
             		...state,
-            		observer: "",
             		location: "",
             		operandY: "",
+                    tracking: "",
             	};
             }
             
             if (cDigit === NIL && cOpers !== NIL) {
                 return {
                     ...state,
-            		observer: "2",
                     operator: cDigit,
                     operandX: cDigit,
                     operandY: pDigit,
+                    tracking: handle ? pointerCase.operandY : ""
                 };
             }
 
@@ -249,13 +253,13 @@ const reducer = (state, event) => {
                 operator: "",
                 solution: "",
                 conflict: "",
-                observer: "",
             };
         }
         case reducerCase.EQUAL: {
             const pDigit = state.operandX;
             const cDigit = state.operandY;
             const cOpers = state.operator;
+            const handle = state.tracking;
 
             const result = computeExpr({
                 operandX: pDigit,
@@ -265,13 +269,13 @@ const reducer = (state, event) => {
 
             return {
                 ...state,
-                observer: "3",
                 solution: result.value || "",
-                conflict: result.error || ""
+                conflict: result.error || "",
+                tracking: result.value ? pointerCase.solution : handle
             };
         }
         case reducerCase.FETCH: {
-            const serial = event.schemeID;
+            const serial = query.schemeID;
             return {
                 ...state,
                 schemeID: serial

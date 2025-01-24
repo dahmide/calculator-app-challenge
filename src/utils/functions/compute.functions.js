@@ -4,11 +4,10 @@ const computeExpr = (param) => {
 	const { operandX, operandY, operator } = param;
 	let outcome;
 	let failure;
-	
+
 	if (operandX === "" || isNaN(operandX) ||
 		operandY === "" || isNaN(operandY)) {
-		return "";
-		//return { value: "", error: false };
+		return { value: "", error: false };
 	}
 	
 	switch (operator) {
@@ -27,6 +26,9 @@ const computeExpr = (param) => {
 		default:
 			failure = "Invalid operation";
 			return { value: failure, error: true };
+	}
+	if (isFinite(outcome) === false) {
+		return { value: "Math Error", error: true };
 	}
 	return { value: outcome, error: false };
 };

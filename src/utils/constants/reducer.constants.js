@@ -1,5 +1,5 @@
 const reducerCase = {
-    NUMBR: "numbr",
+    DIGIT: "digit",
     SIGNS: "signs",
     ERASE: "erase",
     RESET: "reset",

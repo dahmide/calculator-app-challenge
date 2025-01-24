@@ -18,7 +18,7 @@ const Button = (props) => {
     }
     
     return (
-        <button className={`${style} text-copy rounded-md select-none shadow-[0_3px_0_0] active:shadow-[0_2px_0_0] active:shadow-none active:translate-y-1 hover:brightness-125`} onClick={click}>
+        <button className={`${style} text-copy rounded-md select-none shadow-[0_3px_0_0] active:shadow-[0_2px_0_0] active:translate-y-1 hover:brightness-125`} onClick={click}>
             {title}
         </button>
     );

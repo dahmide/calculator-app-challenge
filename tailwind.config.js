@@ -15,7 +15,7 @@ export default {
             "sck-200": "var(--sck-200)",
             "bck-300": "var(--bck-300)",
             "sck-300": "var(--sck-300)",
-            "tcm-idx": "var(--tcm-idx)",
+            "tcm-clr": "var(--tcm-clr)",
             "tcm-100": "var(--tcm-100)",
             "tcm-200": "var(--tcm-200)",
             "tcm-300": "var(--tcm-300)",
@@ -25,6 +25,9 @@ export default {
             fontSize: {
                 "base": "1.000rem",
                 "copy": "1.375rem"
+            },
+            screens: {
+                "sm": "375px"
             }
         },
     },
